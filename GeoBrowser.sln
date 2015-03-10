@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoBrowser.Windows", "GeoBr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoBrowser.WindowsPhone", "GeoBrowser\GeoBrowser.WindowsPhone\GeoBrowser.WindowsPhone.csproj", "{D2CD71C6-233D-4487-8D29-73A0532D296A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C7B0A017-FE48-481E-A4AB-DC6B48E11502}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		GeoBrowser\GeoBrowser.Shared\GeoBrowser.Shared.projitems*{d2cd71c6-233d-4487-8d29-73a0532d296a}*SharedItemsImports = 4
