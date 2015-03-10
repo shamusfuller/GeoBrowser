@@ -14,8 +14,9 @@
         <designtime:MainPageViewModel />
     </d:Page.DataContext>
 
-    <Hub Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-         Header="{Binding Title}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+         <!--Header="{Binding Title}">-->
+        <WebView x:Name="viewer" Source="{Binding ViewerLocation}"></WebView>
 
-    </Hub>
+    </Grid>
 </controls:PageBase>
