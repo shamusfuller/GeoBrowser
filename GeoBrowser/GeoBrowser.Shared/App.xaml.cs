@@ -23,7 +23,7 @@ namespace GeoBrowser
 {
     public sealed partial class App : MvvmAppBase
     {
-        
+
         public App()
         {
             this.InitializeComponent();
@@ -39,5 +39,18 @@ namespace GeoBrowser
             this.NavigationService.Navigate(Experiences.Main.ToString(), null);
             return Task.FromResult<object>(null);
         }
+
+        //protected override void OnInitialize(IActivatedEventArgs args)
+        //{
+        //    ViewModelLocator.Register(typeof().ToString(),
+        //            () => new StartPageViewModel(FlyoutService));
+        //}
+
+        //protected override void OnInitialize(IActivatedEventArgs args)
+        //{
+        //    ViewModelLocationProvider.Register.Register(typeof(MainPage),)
+        //    ViewModelLocator.Register(typeof(StartPage).ToString(),
+        //            () => new StartPageViewModel(FlyoutService));
+        //}
     }
 }

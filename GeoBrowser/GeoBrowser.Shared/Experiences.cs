@@ -4,5 +4,5 @@ using System.Text;
 
 namespace GeoBrowser
 {
-    public enum Experiences { Main }
+    public enum Experiences { Main, Maps }
 }
