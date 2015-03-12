@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,7 @@ namespace GeoBrowser
 {
     public sealed partial class App : MvvmAppBase
     {
+        private UnityContainer _container = new UnityContainer();
 
         public App()
         {
@@ -31,7 +33,8 @@ namespace GeoBrowser
 
         protected override object Resolve(Type type)
         {
-            return base.Resolve(type);
+            //return base.Resolve(type);
+            return _container.Resolve(type);
         }
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs arg)
@@ -39,16 +42,16 @@ namespace GeoBrowser
             this.NavigationService.Navigate(Experiences.Main.ToString(), null);
             return Task.FromResult<object>(null);
         }
+        protected override Task OnInitializeAsync (IActivatedEventArgs args)
+        {
+            _container.RegisterInstance(NavigationService);
+            return Task.FromResult<object>(null);
+        }
 
+        // .Register() does not exist?
         //protected override void OnInitialize(IActivatedEventArgs args)
         //{
-        //    ViewModelLocator.Register(typeof().ToString(),
-        //            () => new StartPageViewModel(FlyoutService));
-        //}
-
-        //protected override void OnInitialize(IActivatedEventArgs args)
-        //{
-        //    ViewModelLocationProvider.Register.Register(typeof(MainPage),)
+        //    ViewModelLocationProvider.Register(typeof(MainPage),)
         //    ViewModelLocator.Register(typeof(StartPage).ToString(),
         //            () => new StartPageViewModel(FlyoutService));
         //}

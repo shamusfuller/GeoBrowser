@@ -38,10 +38,10 @@ namespace GeoBrowser.ViewModels
         }
         public DelegateCommand NavigateToMaps { get; private set; }
 
-        //public MainPageViewModel(INavigationService navigationService)
-        //{
-        //    this.navigationService = navigationService;
-        //}
+        public MainPageViewModel(INavigationService navigationService)
+        {
+            this.navigationService = navigationService;
+        }
 
         public override void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
@@ -57,7 +57,7 @@ namespace GeoBrowser.ViewModels
 
         public async Task ToMaps()
         {
-            //navigationService.Navigate(Experiences.Maps.ToString(), null);
+            navigationService.Navigate(Experiences.Maps.ToString(), null);
             await Task.FromResult<object>(null);
         }
     }
