@@ -23,6 +23,14 @@
             </StackPanel>-->
         </AppBar>
     </Page.TopAppBar>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <!-- CommandBar content -->
+            <AppBarButton Label="Delete" Icon="Delete"/>
+            <AppBarButton Label="Create" Icon="Add"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Height="100" VerticalAlignment="Top">
