@@ -107,9 +107,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Mvvm">
       <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\wpa81\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
     </Reference>

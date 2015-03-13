@@ -1,5 +1,4 @@
-﻿using Autofac;
-using GeoBrowser.Interfaces;
+﻿using GeoBrowser.Interfaces;
 using GeoBrowser.ViewModels;
 using GeoBrowser.Views;
 using Microsoft.Practices.Prism.Mvvm;
@@ -29,9 +28,8 @@ namespace GeoBrowser
 {
     public sealed partial class App : MvvmAppBase
     {
-        // using Unity 3.5.1405-prerelease
+        // using Unity 3.5.1405-prerelease for phone support
         private UnityContainer _container = new UnityContainer();
-        private IContainer container;
 
         public App()
         {
@@ -40,11 +38,8 @@ namespace GeoBrowser
 
         protected override object Resolve(Type type)
         {
-            ////return base.Resolve(type);
             return _container.Resolve(type);
-
             //return base.Resolve(type);
-            return container.Resolve(type);
         }
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs arg)
@@ -54,10 +49,6 @@ namespace GeoBrowser
         }
         protected override Task OnInitializeAsync (IActivatedEventArgs args)
         {
-            ContainerBuilder builder = new ContainerBuilder();
-            builder.RegisterInstance(NavigationService).As<INavigationService>().ExternallyOwned();
-            builder.RegisterType<MainPageViewModel>();//.As<IMainPageViewModel>();
-            container = builder.Build();
             _container.RegisterInstance(NavigationService);
             return Task.FromResult<object>(null);
         }
