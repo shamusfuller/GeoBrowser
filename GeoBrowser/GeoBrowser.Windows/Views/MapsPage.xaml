@@ -14,8 +14,24 @@
         <designtime:MapsPageViewModel />
     </d:Page.DataContext>
 
+    <Page.TopAppBar>
+        <AppBar>
+            <!-- AppBar content -->
+            <!--<StackPanel Orientation="Horizontal">
+                    <AppBarButton Label="Back" Icon="Back" Command="{Binding GoBack}" />
+                <TextBlock x:Name="title" Text="{Binding Title}" Style="{ThemeResource HeaderTextBlockStyle}" VerticalAlignment="Center"/>
+            </StackPanel>-->
+        </AppBar>
+    </Page.TopAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid Height="100" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <AppBarButton x:Name="backButton" Icon="Back" VerticalAlignment="Center" Command="{Binding GoBack}"  />
+            <TextBlock x:Name="title" Text="{Binding Title}" Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="20,-20,0,0" Width="200"/>
+        </Grid>
     </Grid>
 </controls:PageBase>
