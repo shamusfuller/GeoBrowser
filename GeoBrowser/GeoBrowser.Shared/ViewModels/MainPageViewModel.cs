@@ -41,18 +41,18 @@ namespace GeoBrowser.ViewModels
         public MainPageViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
+            NavigateToMaps = DelegateCommand.FromAsyncHandler(ToMaps, () => true);
+            ////this gets called everytime, perhaps make it a singleton?
+            // it was, now it'snot?
+            this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
         }
 
         public override void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
             // can init data here, do things we can't do in a constructor,
             // like IO bound async file read ops, etc
-            this.Title = "Hello runtime!";
-            this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
-            //base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
-
-            NavigateToMaps = DelegateCommand.FromAsyncHandler(ToMaps, () => true); 
-
+            this.Title = "Hello runtime!"; // ToDo: remove this
+            //this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
         }
 
         public async Task ToMaps()

@@ -50,6 +50,8 @@ namespace GeoBrowser
         protected override Task OnInitializeAsync (IActivatedEventArgs args)
         {
             _container.RegisterInstance(NavigationService);
+            //make a singleton here?
+            _container.RegisterInstance(new MainPageViewModel(NavigationService));
             return Task.FromResult<object>(null);
         }
     }
