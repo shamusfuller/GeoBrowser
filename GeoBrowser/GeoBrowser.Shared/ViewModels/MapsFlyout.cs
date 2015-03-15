@@ -8,5 +8,16 @@ namespace GeoBrowser.ViewModels
 {
     public class MapsFlyout : BindableBase, IFlyoutViewModel
     {
+        public Action CloseFlyout
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

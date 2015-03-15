@@ -45,7 +45,6 @@ namespace GeoBrowser
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs arg)
         {
             this.NavigationService.Navigate(Experiences.Main.ToString(), null);
-            Fly
             return Task.FromResult<object>(null);
         }
         protected override Task OnInitializeAsync (IActivatedEventArgs args)
