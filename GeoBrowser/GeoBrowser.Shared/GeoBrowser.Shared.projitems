@@ -23,5 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IMapsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapsFlyout.cs" />
   </ItemGroup>
 </Project>

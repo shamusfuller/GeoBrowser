@@ -45,6 +45,7 @@ namespace GeoBrowser
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs arg)
         {
             this.NavigationService.Navigate(Experiences.Main.ToString(), null);
+            Fly
             return Task.FromResult<object>(null);
         }
         protected override Task OnInitializeAsync (IActivatedEventArgs args)
@@ -52,6 +53,9 @@ namespace GeoBrowser
             _container.RegisterInstance(NavigationService);
             //make a singleton here?
             _container.RegisterInstance(new MainPageViewModel(NavigationService));
+            
+            //_container.RegisterInstance<IFlyoutService>(FlyoutService);
+
             return Task.FromResult<object>(null);
         }
     }
