@@ -46,8 +46,8 @@ namespace GeoBrowser.ViewModels
 
         public async Task ToMain()
         {
-            navigationService.GoBack();
-            //navigationService.Navigate(Experiences.Main.ToString(), Experiences.Maps);
+            //navigationService.GoBack();
+            navigationService.Navigate(Experiences.Main.ToString(), Experiences.Maps);
             await Task.FromResult<object>(null);
         }
     }

@@ -52,6 +52,16 @@ namespace GeoBrowser.ViewModels
             // can init data here, do things we can't do in a constructor,
             // like IO bound async file read ops, etc
             this.Title = "Hello runtime!"; // ToDo: remove this
+            if (navigationParameter != null || navigationParameter == Experiences.Maps.ToString())
+            {
+                // concept was flawed, use MapSignalR to load from here, literally.
+                // can run progress, etc
+                // maybe use map key on return, or null for null op, at which point rebind to extents/etc
+                // don't want any refresh, need null op, may still have to prevent <viewer> instantiation
+                // should never need to know about <viewer>
+                // in short, if nothing else, never nav from, merely signal from navTo view to update map
+                //this.viewerLocation = new Uri("http://localhost:3443/cesium.html");
+            }
             //this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
         }
 

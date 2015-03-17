@@ -15,6 +15,6 @@ namespace GeoBrowser.DesignTime
         }
 
 
-        //public DelegateCommand GoBack { get; set; }
+        public DelegateCommand GoBack { get; set; }
     }
 }
