@@ -20,14 +20,25 @@
             <!-- AppBar content -->
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Maps" Width="140" Height="80" Command="{Binding NavigateToMaps}"/>
-                    <!--<Button Content="Page 1" Width="140" Height="80" Click="AppBarButton_Click"/>
-                    <Button Content="Page 2" Width="140" Height="80" Click="AppBarButton_Click"/>-->
-                    <!--<AppBarButton Label="Maps" Icon="World" Command="Navigate"  />-->
-                    <AppBarButton Label="Delete" Icon="Delete" />
-                    <AppBarButton Label="Servers" Icon="Link" />
+                    <AppBarButton Label="Maps" Icon="World">
+                        <AppBarButton.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource BaseTextBlockStyle}">
+                                        Put map gridview here
+                                    </TextBlock>
+                                    <AppBarButton Label="Delete" Icon="Delete" />
+                                    <AppBarButton Label="New Map" Icon="Add" />
+                                    <AppBarButton Label="Copy" Icon="Copy" />
+                                    <AppBarButton Label="Paste" Icon="Paste" />
+                                    <AppBarButton Label="Duplicate" Icon="RepeatOne" />
+                                </StackPanel>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <!--<AppBarButton Label="Servers" Icon="Link" />
                     <AppBarButton Label="Visible" Icon="View" />
-                    <AppBarButton Label="Create" Icon="Add" />
+                    <AppBarButton Label="Create" Icon="Add" />-->
                 </StackPanel>
             </Grid>
         </AppBar>
@@ -36,12 +47,17 @@
     <Page.BottomAppBar>
         <CommandBar>
             <!-- CommandBar content -->
-            <AppBarButton Label="Layers" Icon="List"/>
             <AppBarButton Label="Save" Icon="Save"/>
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Servers" Icon="Link" />
+                <AppBarButton Label="Layers" Icon="List"/>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-         <!--Header="{Binding Title}">-->
+
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--Header="{Binding Title}">-->
         <WebView x:Name="viewer" Source="{Binding ViewerLocation}"></WebView>
     </Grid>
 </controls:PageBase>

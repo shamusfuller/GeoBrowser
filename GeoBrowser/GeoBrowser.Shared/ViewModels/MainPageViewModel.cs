@@ -13,7 +13,7 @@ namespace GeoBrowser.ViewModels
     {
         private string title = default(string);
         private Uri viewerLocation = default(Uri);
-        private INavigationService navigationService;
+        //private INavigationService navigationService;
         public string Title
         {
             get
@@ -36,12 +36,12 @@ namespace GeoBrowser.ViewModels
                 SetProperty(ref viewerLocation, value);
             }
         }
-        public DelegateCommand NavigateToMaps { get; private set; }
+        public DelegateCommand OpenMap { get; set; }
 
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel()//(INavigationService navigationService)
         {
-            this.navigationService = navigationService;
-            NavigateToMaps = DelegateCommand.FromAsyncHandler(ToMaps, () => true);
+            //this.navigationService = navigationService;
+            OpenMap = DelegateCommand.FromAsyncHandler(SendOpenMap, () => true);
             ////this gets called everytime, perhaps make it a singleton?
             // it was, now it'snot?
             this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
@@ -52,22 +52,21 @@ namespace GeoBrowser.ViewModels
             // can init data here, do things we can't do in a constructor,
             // like IO bound async file read ops, etc
             this.Title = "Hello runtime!"; // ToDo: remove this
-            if (navigationParameter != null || navigationParameter == Experiences.Maps.ToString())
-            {
-                // concept was flawed, use MapSignalR to load from here, literally.
-                // can run progress, etc
-                // maybe use map key on return, or null for null op, at which point rebind to extents/etc
-                // don't want any refresh, need null op, may still have to prevent <viewer> instantiation
-                // should never need to know about <viewer>
-                // in short, if nothing else, never nav from, merely signal from navTo view to update map
-                //this.viewerLocation = new Uri("http://localhost:3443/cesium.html");
-            }
-            //this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
+            //if (navigationParameter != null || navigationParameter == Experiences.Maps.ToString())
+            //{
+            //    // concept was flawed, use MapSignalR to load from here, literally.
+            //    // can run progress, etc
+            //    // maybe use map key on return, or null for null op, at which point rebind to extents/etc
+            //    // don't want any refresh, need null op, may still have to prevent <viewer> instantiation
+            //    // should never need to know about <viewer>
+            //    // in short, if nothing else, never nav from, merely signal from navTo view to update map
+            //    //this.viewerLocation = new Uri("http://localhost:3443/cesium.html");
+            //}
+            ////this.viewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
         }
 
-        public async Task ToMaps()
+        public async Task SendOpenMap()
         {
-            navigationService.Navigate(Experiences.Maps.ToString(), null);
             await Task.FromResult<object>(null);
         }
     }

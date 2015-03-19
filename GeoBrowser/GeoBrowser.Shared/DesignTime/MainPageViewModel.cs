@@ -1,4 +1,5 @@
 ﻿using GeoBrowser.Interfaces;
+using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,5 +16,6 @@ namespace GeoBrowser.DesignTime
             Title = "Hello Designtime!";
             ViewerLocation = new Uri("http://localhost:3443/geoBrowser.html");
         }
+        public DelegateCommand OpenMap { get; set; }
     }
 }

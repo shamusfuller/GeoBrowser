@@ -17,12 +17,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PageBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DesignTime\MainPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DesignTime\MapsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Experiences.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IMainPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IMapsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapsFlyout.cs" />
   </ItemGroup>
 </Project>

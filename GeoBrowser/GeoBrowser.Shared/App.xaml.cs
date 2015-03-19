@@ -28,8 +28,8 @@ namespace GeoBrowser
 {
     public sealed partial class App : MvvmAppBase
     {
-        // using Unity 3.5.1405-prerelease for phone support
-        private UnityContainer _container = new UnityContainer();
+        //// using Unity 3.5.1405-prerelease for phone support
+        //private UnityContainer _container = new UnityContainer();
 
         public App()
         {
@@ -38,8 +38,8 @@ namespace GeoBrowser
 
         protected override object Resolve(Type type)
         {
-            return _container.Resolve(type);
-            //return base.Resolve(type);
+            //return _container.Resolve(type);
+            return base.Resolve(type);
         }
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs arg)
@@ -49,12 +49,8 @@ namespace GeoBrowser
         }
         protected override Task OnInitializeAsync (IActivatedEventArgs args)
         {
-            _container.RegisterInstance(NavigationService);
-            //make a singleton here?
-            _container.RegisterInstance(new MainPageViewModel(NavigationService));
-            
-            //_container.RegisterInstance<IFlyoutService>(FlyoutService);
-
+            //_container.RegisterInstance(NavigationService);
+            //_container.RegisterInstance(new MainPageViewModel(NavigationService));
             return Task.FromResult<object>(null);
         }
     }
