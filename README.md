@@ -5,3 +5,4 @@ viewer is a hop off, why not just signal?
 
 flyout close handler?
 
+runs after xFer, need to abandon, drive through API, then return
